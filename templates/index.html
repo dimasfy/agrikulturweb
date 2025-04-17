@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.plot.ly/plotly-2.20.0.min.js"
+      charset="utf-8"
+    ></script>
+    <link
+      href="{{url_for('static', filename = 'index.css')}}"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"
+      integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ=="
+      crossorigin="anonymous"
+    ></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+          <a class="navbar-brand" href="#">
+              <!-- <span class="brand-text">SS</span> -->
+              <img src="{{url_for('static', filename = 'logo.svg')}}" alt="logo" class="logo-image">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+              <ul class="navbar-nav ml-auto mb-2 mb-lg-0"> 
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Beranda</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a id="informasi-link" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">Informasi</a>
+                      <ul class="dropdown-menu" style="padding: 5px; margin: .6em;">
+                          <li><a class="dropdown-item" href="#">Agrikultur</a></li>
+                          <li><a class="dropdown-item" href="#">Air</a></li>                  
+                          <li><a class="dropdown-item" href="#">Peternakan</a></li>                  
+                          <li><a class="dropdown-item" href="#">Fasilitas Umum</a></li>    
+                          <li><a class="dropdown-item" href="#">Bencana Alam</a></li>    
+                          <li><a class="dropdown-item" href="#">Sampah</a></li>
+                          <li class="nav-item dropend">
+                              <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contoh</a>
+                              <ul class="dropdown-menu submenu" style="padding: 5px; margin: .6em;">
+                                  <li><a class="dropdown-item" href="#">Contoh 1</a></li>
+                                  <li><a class="dropdown-item" href="#">Contoh 2</a></li>                      
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Tentang Kami</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  
+    <section id="jumbotron">
+        <h1>Selamat Datang!</h1>
+        <div class="container">
+          <p class="text">
+            Selamat datang di sistem kontrol dan monitoring greenhouse kami! Kami menghadirkan teknologi untuk memastikan pencahayaan, kondisi udara, dan level air yang optimal bagi tanaman Anda. Dengan sensor BH1750 untuk cahaya, sensor DHT untuk suhu, serta sensor LDR dan laser KY008 untuk level air, semua terpantau dengan baik. Sensor FSR juga siap mendeteksi kapan hasil panen siap dikirim.
+
+            Data dipantau secara real-time dan disimpan di database lokal. Sistem ini terintegrasi dengan protokol MQTT untuk efisiensi maksimal. Nikmati kemudahan dan keandalan teknologi ini untuk meningkatkan hasil panen Anda. Selamat berkebun! 
+          </p>
+        </div>
+      </section>
+    
+  <section id="uraian">
+    <h1 class="desksistem" style = "text-align: left ; padding-left: 50px; padding-top:5px; padding-bottom: 0px;">Deskripsi Sistem</h1>
+    <div class="row">
+      <div class="col-md-8 col-12">
+        <p class="deskripsi">Selamat datang di sistem kontrol dan monitoring greenhouse kami! Sistem ini dirancang untuk menjaga kondisi optimal bagi tanaman dengan teknologi yang terintegrasi. Dengan sensor BH1750, intensitas cahaya diukur dan dikendalikan untuk memastikan pencahayaan yang sesuai. Sensor DHT memonitor suhu, mengaktifkan kipas jika diperlukan untuk menjaga suhu ideal. Kombinasi sensor LDR dan laser KY008 digunakan untuk mendeteksi level air, memastikan tanaman selalu mendapatkan air yang cukup.</p>
+        <p class="deskripsi2">Selain itu, sensor FSR mendeteksi tekanan hasil panen, memberi tahu kapan saatnya panen dikirim. Semua data dikirim secara real-time ke dashboard dan disimpan di database lokal untuk analisis lebih lanjut. Sistem ini terintegrasi dengan sistem air dan distribusi menggunakan protokol MQTT untuk efisiensi maksimal. Penempatan sensor dan aktuator yang strategis, serta kabel yang terorganisir rapi, memudahkan perawatan dan memastikan performa optimal.</p>
+      </div>
+      <div class="col-md-4 col-12">
+        <img src="{{url_for('static', filename = 'DED.png')}}" class="DED img-fluid" alt="DED Image">
+      </div>
+    </div>
+  </section>
+
+    <section id="container2">
+      <div class="container">
+        <h1 class="text-left pt-5 pb-0 Apasaja">Apa saja yang dipantau?</h1>
+        <h2 class="text-left pt-2 pb-5 diawasi">Parameter yang diawasi pada <em class="emphasized">greenhouse</em></h2>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12 parameter mb-4">
+            <img src="{{url_for('static', filename = 'Intensitas Cahaya.png')}}" class="cardcahaya img-fluid">
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12 parameter mb-4">
+            <img src="{{url_for('static', filename = 'Suhu.png')}}" class="cardsuhu img-fluid">
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12 parameter mb-4">
+            <img src="{{url_for('static', filename = 'Level air.png')}}" class="cardlevel img-fluid">
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12 parameter mb-4">
+            <img src="{{url_for('static', filename = 'Padi.png')}}" class="cardpadi img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="Dashboard">
+      <h1 class="Juduldashboard"  style = "padding-top:50px; padding-bottom: 50px;">Dashboard</h1>
+
+      <div>
+        <div class="right-side">
+          <div class="box-topic"></div>
+          <div class="number" id="suhu"></div>
+        </div>
+      <div>
+        <div class="right-side">
+          <div class="box-topic"></div>
+          <div class="number" id="intensitas"></div>
+      </div>
+
+
+      <h2 class="parameter-cahaya">
+        <span class="intensitass">Intensitas</span> <span class="cahayaa">Cahaya</span>
+      </h2>
+      <div class ="intensitas-container">
+        <div class="flexbox-item flexbox-item-1">
+          <div id="intensitas-gauge"></div>
+        </div>
+        <div class="flexbox-item flexbox-item-2 history-divs">
+          <div id="intensitas-history"></div>
+        </div>
+      </div>
+      
+      <h2 class = "Suhuu">Suhu</h2>
+      <div class ="intensitas-container">
+        <div class="flexbox-item flexbox-item-1">
+          <div id="suhu-gauge"></div>
+        </div>
+        <div class="flexbox-item flexbox-item-2 history-divs">
+          <div id="suhu-history"></div>
+        </div>
+      </div>
+
+      <div class="padilevel-container"> 
+        <span class="Levell">Level </span> <span class="Airr">Air </span> <span class="dan">dan </span> <span class="Beratt">Berat </span> <span class="Padii">Padi </span>
+        <div class="airpadi">
+          <div id="Statuspanen" class="status-item">
+            <img src="{{url_for('static', filename = 'tetesair.png')}}" class="gambar-status">
+            <div id="water_status" class="status-normal">Loading water status...</div>
+        </div>
+        <div id="Statuslevel" class="status-item">
+            <img src="{{url_for('static', filename = 'jagung.png')}}"  class="gambar-status">
+            <div id="harvest_status" class="status-normal">Loading harvest status...</div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- FOOTER -->
+  <footer id="footer" class="footer bg-white">
+    <div class="footer-content">
+      <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex flex-column">
+                <div class="footer-info mb-auto">
+                    <div class="d-flex flex-column align-items-center text-primary" style="margin-bottom: 50px;">
+                        <img src="{{url_for('static', filename = 'ugm-lok.png')}}" class="img-fluid" alt="Alamat" class="mb-4">
+                    </div>
+                </div>
+                <div class="footer-links text-primary text-center">
+                    <h4 style="margin-bottom: 10px; color:#266AA6">Informasi</h4>
+                    <ul class="list-unstyled d-flex flex-wrap justify-content-center text-center">
+                        <li class="my-link"><a href="#">Agrikultur</a></li>
+                        <li class="my-link"><a href="#">Peternakan</a></li>
+                        <li class="my-link"><a href="#">Air</a></li>
+                        <li class="my-link"><a href="#">Fasilitas Umum</a></li>
+                        <li class="my-link"><a href="#">Bencana Alam</a></li>
+                        <li class="my-link"><a href="#">Sampah</a></li>
+                    </ul>
+                </div>                
+            </div>            
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="{{ url_for('static', filename = 'index.js') }}"
+  ></script>
+  </body>
+</html>
